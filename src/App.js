@@ -6,8 +6,8 @@ import FinalResults from './components/FinalResults';
 
 class App extends Component {
 	state = {
-		step: 3,
-		name: 'Chris Z'
+		step: 1,
+		name: ''
 	};
 
 	nextStep = () => {

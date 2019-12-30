@@ -19,7 +19,6 @@ export class FinalResults extends Component {
 			<div className='font-bold text-3xl'>Loading results.......</div>
 		) : (
 			<div className='font-bold text-3xl'>
-				<h1>{`Your name is ${values.name}`}</h1>
 				<div className='mt-16 max-w-xl'>
 					<Video name={values.name} />
 				</div>

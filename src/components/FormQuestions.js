@@ -14,11 +14,59 @@ export class FormQuestions extends Component {
 
 		return (
 			<div>
-				Form questions!!!
 				<form>
 					<div className='block my-5'>
 						<label htmlFor='name' className='text-5xl font-bold text-blue-900'>
 							First, what's your name?
+						</label>
+						<p className='text-teal-800'>
+							I have to know because your name makes you special.
+						</p>
+						<input
+							className='bg-orange-200 appearance-none border-2 border-orange-200 rounded w-full py-4 px-4 text-2xl text-blue-900 leading-tight focus:outline-none focus:bg-red-100 focus:border-red-500'
+							type='text'
+							name='name'
+							id='name'
+							placeholder='Keanu Reeves'
+							value={values.name}
+							onChange={this.props.handleChange}
+						/>
+					</div>
+					<div className='block my-5'>
+						<label htmlFor='name' className='text-5xl font-bold text-blue-900'>
+							Do you prefer Cats or Dogs?
+						</label>
+						<p className='text-teal-800'>Important factor.</p>
+						<input
+							className='bg-orange-200 appearance-none border-2 border-orange-200 rounded w-full py-4 px-4 text-2xl text-blue-900 leading-tight focus:outline-none focus:bg-red-100 focus:border-red-500'
+							type='text'
+							name='name'
+							id='name'
+							placeholder='Keanu Reeves'
+							value={values.name}
+							onChange={this.props.handleChange}
+						/>
+					</div>
+					<div className='block my-5'>
+						<label htmlFor='name' className='text-5xl font-bold text-blue-900'>
+							Do you floss daily?
+						</label>
+						<p className='text-teal-800'>
+							I have to know because your name makes you special.
+						</p>
+						<input
+							className='bg-orange-200 appearance-none border-2 border-orange-200 rounded w-full py-4 px-4 text-2xl text-blue-900 leading-tight focus:outline-none focus:bg-red-100 focus:border-red-500'
+							type='text'
+							name='name'
+							id='name'
+							placeholder='Keanu Reeves'
+							value={values.name}
+							onChange={this.props.handleChange}
+						/>
+					</div>
+					<div className='block my-5'>
+						<label htmlFor='name' className='text-5xl font-bold text-blue-900'>
+							How many resolutions do you have this year?
 						</label>
 						<p className='text-teal-800'>
 							I have to know because your name makes you special.
