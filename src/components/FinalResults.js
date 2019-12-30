@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Video from './lottie/Video';
 
 export class FinalResults extends Component {
 	state = {
@@ -7,15 +8,7 @@ export class FinalResults extends Component {
 	componentDidMount = () => {
 		setTimeout(() => {
 			this.setState({ loading: false });
-			this.updateCanvas();
 		}, 500);
-	};
-
-	updateCanvas = () => {
-		const canvas = this.refs.canvas;
-		canvas.height = canvas.width;
-		const ctx = canvas.getContext('2d');
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
 	};
 
 	render() {
@@ -28,7 +21,7 @@ export class FinalResults extends Component {
 			<div className='font-bold text-3xl'>
 				<h1>{`Your name is ${values.name}`}</h1>
 				<div className='mt-16 max-w-xl'>
-					<canvas ref='canvas'></canvas>
+					<Video name={values.name} />
 				</div>
 			</div>
 		);
