@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap');
+
+@tailwind base;
+
+body {
+	@apply bg-orange-100 font-body;
+}
+
+@tailwind components;
+
+@tailwind utilities;
