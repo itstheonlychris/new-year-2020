@@ -6,7 +6,7 @@ import FinalResults from './components/FinalResults';
 
 class App extends Component {
 	state = {
-		step: 3,
+		step: 1,
 		name: '',
 		catsOrDogs: '',
 		floss: '',
