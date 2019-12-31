@@ -12,7 +12,8 @@
 		"postcss-cli": "^6.1.3",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
-		"react-scripts": "3.3.0"
+		"react-scripts": "3.3.0",
+		"react-share": "^3.0.1"
 	},
 	"scripts": {
 		"build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",

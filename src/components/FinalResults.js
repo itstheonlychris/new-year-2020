@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Video from './lottie/Video';
+import Video2 from './lottie/Video2';
 
 export class FinalResults extends Component {
 	state = {
@@ -19,12 +20,22 @@ export class FinalResults extends Component {
 			<div className='font-bold text-3xl'>Loading results.......</div>
 		) : (
 			<div className='font-bold text-3xl'>
-				<div className='mt-16 max-w-xl'>
-					<Video name={values.name} />
+				<div className='mt-16 max-w-3xl'>
+					{/* <Video name={values.name} /> */}
+					<Video2 name={values.name} goToStep={this.props.goToStep} />
 				</div>
 			</div>
 		);
-		return <div>{display}</div>;
+		return (
+			<div>
+				<div className='my-10'>
+					<h1 className='leading-none text-5xl lg:text-6xl font-bold text-red-600 '>
+						How long will you keep your resolutions this year?
+					</h1>
+				</div>
+				{display}
+			</div>
+		);
 	}
 }
 

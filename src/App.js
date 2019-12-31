@@ -6,8 +6,11 @@ import FinalResults from './components/FinalResults';
 
 class App extends Component {
 	state = {
-		step: 1,
-		name: ''
+		step: 3,
+		name: '',
+		catsOrDogs: '',
+		floss: '',
+		quizzes: ''
 	};
 
 	nextStep = () => {
@@ -22,7 +25,14 @@ class App extends Component {
 		});
 	};
 
+	goToStep = step => {
+		this.setState({
+			step: step
+		});
+	};
+
 	handleChange = e => {
+		console.log('changed');
 		this.setState({
 			[e.target.name]: e.target.value
 		});
@@ -46,7 +56,9 @@ class App extends Component {
 				);
 				break;
 			case 3:
-				displayStep = <FinalResults values={this.state} />;
+				displayStep = (
+					<FinalResults values={this.state} goToStep={this.goToStep} />
+				);
 				break;
 			default:
 				displayStep = <div>Hmm this is suspicious</div>;
