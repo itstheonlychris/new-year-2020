@@ -21,6 +21,7 @@ export class Navbar extends Component {
 					<a
 						href='https://itstheonlychris.com'
 						className='block cursor-pointer hover:text-red-400  hover:underline tracking-wide '
+						target='_blank'
 					>
 						itstheonlychris.com
 					</a>
