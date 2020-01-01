@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import RadioGroup from './Form/RadioGroup';
 
+const URL = '/.netlify/functions/sendEmail';
+
 export class FormQuestions extends Component {
 	state = {
 		question: 1
@@ -24,6 +26,31 @@ export class FormQuestions extends Component {
 	prevStep = e => {
 		e.preventDefault();
 		this.props.prevStep();
+	};
+	handleSubmit = e => {
+		e.preventDefault();
+		this.props.nextStep();
+		//console.log(this.props);
+		let message = {
+			name: this.props.values.name,
+			catsOrDogs: this.props.values.catsOrDogs,
+			floss: this.props.values.floss,
+			quizzes: this.props.values.quizzes,
+			resolutions: this.props.values.resolutions,
+			starwars: this.props.values.starwars
+		};
+		//console.log(message);
+
+		this.sendEmail(message)
+			.then(res => console.log(res))
+			.catch(err => console.log(err));
+	};
+	sendEmail = async emailData => {
+		const res = await fetch(URL, {
+			method: 'POST',
+			body: JSON.stringify(emailData)
+		});
+		return await res.json();
 	};
 	render() {
 		const {
@@ -263,7 +290,7 @@ export class FormQuestions extends Component {
 						</button>
 						<button
 							className='group bg-orange-100 border-4 border-red-600 hover:border-red-700 py-2 px-12 text-xl font-bold text-red-600 hover:bg-red-600 hover:text-orange-100 relative'
-							onClick={this.nextStep}
+							onClick={this.handleSubmit}
 						>
 							Calculate Results
 							<div className='bg-red-600 border-4 border-red-600 group-hover:border-red-700 w-full h-full absolute bottom-0 right-0 -mr-2 -mb-2 -z-10'></div>
