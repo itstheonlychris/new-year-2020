@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+
 import Navbar from './components/Navbar';
 import Start from './components/Start';
 import FormQuestions from './components/FormQuestions';
 import FinalResults from './components/FinalResults';
 
+const initialState = {
+	showModal: false,
+	step: 3,
+	name: '',
+	catsOrDogs: '',
+	floss: '',
+	quizzes: ''
+};
+
 class App extends Component {
-	state = {
-		step: 1,
-		name: '',
-		catsOrDogs: '',
-		floss: '',
-		quizzes: ''
+	state = initialState;
+
+	toggleModal = () => {
+		this.setState({ showModal: !this.state.showModal });
 	};
 
 	nextStep = () => {
@@ -25,10 +33,8 @@ class App extends Component {
 		});
 	};
 
-	goToStep = step => {
-		this.setState({
-			step: step
-		});
+	startOver = () => {
+		this.setState(initialState);
 	};
 
 	handleChange = e => {
@@ -57,7 +63,7 @@ class App extends Component {
 				break;
 			case 3:
 				displayStep = (
-					<FinalResults values={this.state} goToStep={this.goToStep} />
+					<FinalResults values={this.state} startOver={this.startOver} />
 				);
 				break;
 			default:
@@ -66,7 +72,7 @@ class App extends Component {
 		return (
 			<div className='px-6 md:px-5'>
 				<div className='max-w-xl lg:max-w-3xl mx-auto mt-3'>
-					<Navbar />
+					<Navbar toggleModal={this.toggleModal} />
 					{displayStep}
 				</div>
 			</div>

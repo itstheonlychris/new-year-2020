@@ -9,12 +9,25 @@ export class Start extends Component {
 						How long will you keep your resolutions this year?
 					</h1>
 				</div>
-				<div className='mb-5 text-teal-800 text-xl md:text-2xl lg:text-3xl md:pr-12 lg:mr-16'>
-					Use my brand new super complicated and advanced{' '}
-					<span className='font-bold text-blue-900'>
-						New Year's Resolution Calculator
-					</span>{' '}
-					to determine exactly how long you'll stick with it this year.
+				<div className='mb-5 text-teal-800 text-xl md:text-2xl lg:text-3xl'>
+					<p className='mb-6'>
+						I'm{' '}
+						<a
+							href='https://itstheonlychris.com'
+							className='font-bold text-blue-900 hover:underline'
+						>
+							Chris Zachary
+						</a>
+						. I'm using technology and totally real statistics to make
+						personalized predictions of your future.
+					</p>
+					<p className=' md:pr-6 lg:mr-10'>
+						Use my brand new super complicated and advanced{' '}
+						<span className='font-bold text-blue-900'>
+							New Year's Resolution Calculator
+						</span>{' '}
+						to determine exactly how long you'll stick with it this year.
+					</p>
 				</div>
 				<div className='my-16'>
 					<button

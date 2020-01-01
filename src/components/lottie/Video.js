@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import lottie from 'lottie-web';
-import animationData from '../../lottie/video_v1.json';
+import animationData from '../../lottie/video_v2.json';
 
 let animObj = null;
 let capturer = null;

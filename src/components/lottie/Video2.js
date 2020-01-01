@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import lottie from 'lottie-web';
-import animationData from '../../lottie/video_v1.json';
-import {TwitterShareButton} from 'react-share'
+import animationData from '../../lottie/video_v2.json';
+import { TwitterShareButton } from 'react-share';
 
 let animObj = null;
 
-const scaleSide = 500;
+const scaleSide = 1080;
 
 const randomNumber = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,8 +17,8 @@ function draw(canvas, scaleX, scaleY, props) {
 	const nameCap = props.name.charAt(0).toUpperCase() + props.name.slice(1);
 	const nameString = `Dear ${nameCap},`;
 
-	animationData.layers[0].t.d.k[0].s.t = nameString;
-	animationData.layers[1].t.d.k[0].s.t = randomNumber(1, 15).toString();
+	animationData.layers[0].t.d.k[0].s.t = randomNumber(1, 15).toString();
+	animationData.layers[6].t.d.k[0].s.t = nameString;
 	animationData.layers[15].t.d.k[0].s.t = nameCap;
 
 	animObj = lottie.loadAnimation({
@@ -70,44 +70,42 @@ const Video2 = props => {
 			});
 	});
 
-	const saveImage = () => {
-		console.log(canvas);
-		canvas.current.toDataURL('image/png');
-	};
 	return (
 		<>
 			<canvas ref={canvas} style={{ width: '100%', height: '100%' }} />
-			<TwitterShareButton title="I failed the quiz that Chris made even though it's super fair." url={`yourmom.com`} >Share to Twitter</TwitterShareButton>
-			
-			{saveButton && (
-				<div>
-				
+
+			<div>
+				<div className='mb-4 mt-5 flex items-center justify-center'>
 					<button
-						className='px-10 py-4 hover:text-red-700 text-red-500 text-lg font-bold'
-						onClick={() => saveImage()}
+						className='group bg-orange-100  hover:border-red-700 py-2 px-2 text-lg lg:text-xl font-bold text-red-600 hover:bg-red-600 hover:text-orange-100 relative mr-6'
+						onClick={e => {
+							e.preventDefault();
+							props.startOver();
+						}}
 					>
-						Save Image
+						Try Again
 					</button>
-					<div className='my-16 flex items-center'>
-						<button
-							className='group bg-orange-100  hover:border-red-700 py-2 px-4 text-xl font-bold text-red-600 hover:bg-red-600 hover:text-orange-100 relative mr-6'
-							onClick={e => {
-								e.preventDefault();
-								props.goToStep(1);
-							}}
-						>
-							Try Again
-						</button>
-						<button
-							className='group bg-orange-100 border-4 border-red-600 hover:border-red-700 py-2 px-12 text-xl font-bold text-red-600 hover:bg-red-600 hover:text-orange-100 relative'
-							onClick={() => console.log('SHARERERERERERE')}
-						>
-							Check out my stuff
-							<div className='bg-red-600 border-4 border-red-600 group-hover:border-red-700 w-full h-full absolute bottom-0 right-0 -mr-2 -mb-2 -z-10'></div>
-						</button>
-					</div>
+					<TwitterShareButton
+						title="I failed the quiz that Chris made even though it's super fair. Try it out!"
+						url='https://2020.itstheonlychris.com'
+						className='group bg-orange-100 border-4 border-red-600 hover:border-red-700 py-2 px-4 lg:px-8 text-lg lg:text-xl font-bold text-red-600 hover:bg-red-600 hover:text-orange-100'
+					>
+						Share on Twitter
+					</TwitterShareButton>
 				</div>
-			)}
+				<div>
+					<p className='font-bold text-red-600 text-lg lg:text-xl text-center mt-5 lg:mt-8 mb-12'>
+						Like this project?{' '}
+						<a
+							href='https://twitter.com/itstheonlychris'
+							className='text-blue-900 hover:underline'
+							target='_blank'
+						>
+							Keep in touch
+						</a>
+					</p>
+				</div>
+			</div>
 		</>
 	);
 };
