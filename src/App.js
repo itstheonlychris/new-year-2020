@@ -7,7 +7,7 @@ import FinalResults from './components/FinalResults';
 
 const initialState = {
 	showModal: false,
-	step: 3,
+	step: 1,
 	name: '',
 	catsOrDogs: '',
 	floss: '',
