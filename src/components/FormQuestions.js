@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RadioGroup from './Form/RadioGroup';
 
-const URL = '/.netlify/functions/SendEmail';
+const URL = '/.netlify/functions/SendSlack';
 
 export class FormQuestions extends Component {
 	state = {
